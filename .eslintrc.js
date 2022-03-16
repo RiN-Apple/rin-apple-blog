@@ -7,6 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'google',
     'next/core-web-vitals',
+    'prettier',
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
@@ -22,5 +23,6 @@ module.exports = {
   ],
   'rules': {
     'semi': ['error', 'always'],
+    'require-jsdoc': 0
   },
 };
