@@ -5,7 +5,7 @@ const About: NextPage = () => {
   return (
     <div>
       <Meta title='About' description='RiNBlogのAboutページ。' />
-      <h1>About</h1>
+      <h1 className='py-96'>About</h1>
     </div>
   );
 };

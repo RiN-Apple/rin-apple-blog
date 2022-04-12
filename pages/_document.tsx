@@ -11,9 +11,13 @@ class Document extends NextDocument<Props> {
             href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap'
             rel='stylesheet'
           />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&display=swap'
+            rel='stylesheet'
+          />
         </Head>
-        <body className='font-notosans'>
-          <Main />
+        <body className='font-notosans bg-gray-100'>
+          <Main/>
           <NextScript />
         </body>
       </Html>

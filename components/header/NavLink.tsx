@@ -10,12 +10,10 @@ type Props = {
 const NavLink: NextPage<Props> = ({ href, text, last }: Props) => {
   return (
     <>
-      <div className='p-3 mx-1 hover:bg-gray-500'>
-        <Link href={href}>
-          <a>{text}</a>
-        </Link>
-      </div>
-      {!last && <div className='py-3'>|</div>}
+      <Link href={href}>
+        <a className='p-1 mx-1 hover:bg-gray-100'>{text}</a>
+      </Link>
+      {!last && <div className='p-1'>|</div>}
     </>
   );
 };
