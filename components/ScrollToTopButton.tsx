@@ -10,7 +10,7 @@ const ScrollToTopButton: NextPage = () => {
   return (
     <div className='relative'>
       <button
-        className='fixed right-8 bottom-8 p-2 font-notoserif text-lg bg-blue-300 hover:bg-blue-200 sm:text-3xl'
+        className='fixed right-8 bottom-8 justify-center items-center w-16 h-16 font-notoserif text-6xl bg-blue-300 hover:bg-blue-200 rounded-full'
         onClick={scrollToTop}
       >
         ^
