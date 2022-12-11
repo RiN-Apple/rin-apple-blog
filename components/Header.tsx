@@ -7,7 +7,7 @@ const Header: NextPage = () => {
       <h1 className='mt-3 mb-2 text-center'>
         <Link href='/'>RiN5 BLOG</Link>
       </h1>
-      <div className='w-full h-1 bg-gray-600' />
+      <div className='w-full h-1 bg-gray-500' />
     </header>
   );
 };
