@@ -3,11 +3,15 @@ import Meta from '../components/Meta';
 
 const Home: NextPage = () => {
   return (
-    <div className='flex flex-col gap-y-5  w-full bg-white'>
-      <Meta title='Home' description='RiNBlogのHomeページ。' />
-      
-      <h2 className='w-full p-3'>コンテンツ</h2>
-    </div>
+    <>
+      <Meta title='Home' description='RiN5 BLOGのHomeページ。' />
+      <div className='flex flex-col gap-y-5 w-full '>
+        <div className='w-full p-3 bg-white'>
+          <h2 >コンテンツ</h2>
+        </div>
+      </div>
+    </>
+
   );
 };
 
