@@ -1,6 +1,8 @@
-# RiN blog
+# RiN5-BLOG
 
-## 　起動
+RiN5さんのブログテンプレート。SSGしてます。
+
+## 起動
 
 ```bash
 npm run dev
@@ -9,6 +11,15 @@ yarn dev
 ```
 
 <http://localhost:3000>を開く
+
+## 利用した技術
+
+- Next.js(SSG)
+  - TypeScript
+  - React
+- prettier(コード整形)
+- eslint(構文チェック)
+- tailwind css(decoration)
 
 ## 作成tips
 
@@ -27,3 +38,5 @@ npm install -D prettier eslint-config-prettier
 ```
 
 eslint設定の参考： <https://zenn.dev/rabbit/articles/d7175e62dc56a5>
+
+### 3
