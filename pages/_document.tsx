@@ -16,8 +16,8 @@ class Document extends NextDocument<Props> {
             rel='stylesheet'
           />
         </Head>
-        <body className='font-notosans bg-gray-100'>
-          <Main/>
+        <body className='bg-gray-100 font-notosans'>
+          <Main />
           <NextScript />
         </body>
       </Html>

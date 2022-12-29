@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer: NextPage = () => {
   return (
-    <footer className='flex flex-col w-full justify-between p-3 mx-auto font-notoserif text-center text-gray-200 bg-gray-800'>
+    <footer className='mx-auto flex w-full flex-col justify-between bg-gray-800 p-3 text-center font-notoserif text-gray-200'>
       <p className='text-sm'>
         <Link href='/'>RiN5 BLOG</Link>
       </p>

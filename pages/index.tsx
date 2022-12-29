@@ -5,13 +5,12 @@ const Home: NextPage = () => {
   return (
     <>
       <Meta title='Home' description='RiN5 BLOGのHomeページ。' />
-      <div className='flex flex-col gap-y-5 w-full '>
-        <div className='w-full p-3 bg-white'>
-          <h2 >コンテンツ</h2>
+      <div className='flex w-full flex-col gap-y-5 '>
+        <div className='w-full bg-white p-3'>
+          <h2>コンテンツ</h2>
         </div>
       </div>
     </>
-
   );
 };
 

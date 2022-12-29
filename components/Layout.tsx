@@ -11,13 +11,12 @@ type Props = {
 
 const Layout: NextPage = ({ children }: Props) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className='flex min-h-screen flex-col'>
       <Header />
-      <div className='flex flex-col sm:flex-row max-w-7xl w-full min-h-screen mt-4 mx-auto p-2 gap-y-4 sm:gap-x-4'>
-        <main className="flex w-full mx-auto">{children}</main>
+      <div className='mx-auto mt-4 flex min-h-screen w-full max-w-6xl flex-col gap-y-4 p-2 sm:flex-row sm:gap-x-4'>
+        <main className='mx-auto flex w-full'>{children}</main>
         <SideBar />
       </div>
-
       <Footer />
       <ScrollToTopButton />
     </div>
