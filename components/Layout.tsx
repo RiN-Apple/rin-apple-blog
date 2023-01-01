@@ -14,7 +14,7 @@ const Layout: NextPage = ({ children }: Props) => {
     <div className='flex min-h-screen flex-col'>
       <Header />
       <div className='mx-auto mt-4 flex min-h-screen w-full max-w-6xl flex-col gap-y-4 p-2 sm:flex-row sm:gap-x-4'>
-        <main className='mx-auto flex w-full'>{children}</main>
+        <main className='mx-auto flex w-full flex-col'>{children}</main>
         <SideBar />
       </div>
       <Footer />
