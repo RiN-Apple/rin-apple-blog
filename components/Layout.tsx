@@ -9,7 +9,7 @@ type Props = {
   children?: ReactNode;
 };
 
-const Layout: NextPage = ({ children }: Props) => {
+const Layout: NextPage = ({ children,  }: Props) => {
   return (
     <div className='flex min-h-screen flex-col'>
       <Header />

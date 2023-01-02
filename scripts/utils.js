@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export const getPostMetaTags = async () => {
-  /// pages/posts/*.mdxのファイル名を取得
+  // pages/posts/*.mdxのファイル名を取得
   const postFileNames = fs.readdirSync(path.join(process.cwd(), 'pages', 'posts'));
 
   // 記事を取得

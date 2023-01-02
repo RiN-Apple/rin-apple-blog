@@ -1,0 +1,31 @@
+import BlogLayout from '../../components/BlogLayout';
+import Meta from '../../components/Meta';
+
+export const meta = {
+  title: '【Next.js+MDX】このブログの中身',
+  category: 'プログラミング',
+  tags: ['プログラミング', 'Next.js', 'TailWind CSS', 'MDX'],
+  date: '2023-1-5',
+  update: '',
+  outline:
+    'どうもはじめまして、「RiN5」です。田舎で大学生してます。とりあえず、自己紹介と意気込みを書いてみます。',
+  link: 'posts/20230103first-post',
+  headImage: '/20230103/title.jpg',
+};
+
+どうもはじめまして、  
+「RiN5」です。
+田舎で大学生してます。
+とりあえず、自己紹介と意気込みを書いてみます。
+
+## 自己紹介
+
+- a
+- a
+
+## 意気込み
+
+## まとめ
+
+<Meta title={meta.title} description={meta.outline}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
