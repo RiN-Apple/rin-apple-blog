@@ -1,17 +1,38 @@
 import type { NextPage } from 'next';
 import Meta from '../components/Meta';
+import { getPostMetaTags } from '../scripts/utils';
 
-const Home: NextPage = () => {
+type postMetaType = {
+  title: string;
+  category: string;
+  tags: string[];
+  data: string;
+  outline: string;
+  link: string;
+}[];
+
+const Home: NextPage = (props: { postMetas: postMetaType }) => {
   return (
     <>
       <Meta title='Home' description='RiN5 BLOGのHomeページ。' />
       <div className='flex w-full flex-col gap-y-5 '>
         <div className='w-full bg-white p-3'>
-          <h2>コンテンツ</h2>
+          <h2>{props.postMetas[0].title}</h2>
+          <p>{props.postMetas[0].link}</p>
         </div>
       </div>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const postMetas = await getPostMetaTags(); // the argument has no effect yet
+
+  return {
+    props: {
+      postMetas,
+    },
+  };
 };
 
 export default Home;

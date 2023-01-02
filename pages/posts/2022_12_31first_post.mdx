@@ -1,3 +1,4 @@
+import BlogLayout from '../../components/BlogLayout';
 import Meta from '../../components/Meta';
 
 export const meta = {
@@ -7,10 +8,8 @@ export const meta = {
   date: '2022-12-31',
   outline:
     '初めてのブログ投稿。ドキドキしますよね？そんなあなたにブログ初投稿の当ブログ主が、効果的な初投稿記事の書き方をレクチャーします！',
-  link: '/first_post',
+  link: 'pages/posts/2022_12_31first_post.mdx',
 };
-
-# 初投稿者必見！！ブログ初投稿者による初投稿記事の書き方講座！！
 
 極論、自己紹介とブログの意気込みが書かれていれば OK です。
 
@@ -24,3 +23,4 @@ export const meta = {
 ## まとめ
 
 <Meta title={meta.title + ' | RiN5 BLOG'} description={meta.outline}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
