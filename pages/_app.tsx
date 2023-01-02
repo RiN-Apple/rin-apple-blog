@@ -10,7 +10,7 @@ function H2(props: { children?: ReactNode }) {
   return (
     <>
       <h2
-        id={props.children?.toString().split(0, 20)}
+        id={props.children?.toString().substring(1, 20)[0]}
         className='pt-2 text-2xl font-bold text-gray-600 sm:text-3xl'
       >
         {props.children}
@@ -24,8 +24,7 @@ function H3(props: { children?: ReactNode }) {
   return (
     <>
       <h3
-        // id={ReactDOMServer.renderToStaticMarkup(props.children)}
-        id={props.children?.toString().split(0, 20)}
+        id={props.children?.toString().substring(0, 20)[0]}
         className='pt-2 pl-2 text-xl font-semibold text-gray-600 sm:text-2xl'
       >
         {props.children}
