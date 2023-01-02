@@ -6,8 +6,32 @@ import { ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
 // 生成されたHTMLで使用するコンポーネント
-function H1(props: { children?: ReactNode }) {
-  return <h1 className='text-2xl font-bold text-blue-600'>{props.children}</h1>;
+function H2(props: { children?: ReactNode }) {
+  return (
+    <>
+      <h2
+        id={props.children?.toString().split(0, 20)}
+        className='pt-2 text-2xl font-bold text-gray-600 sm:text-3xl'
+      >
+        {props.children}
+      </h2>
+      <div className='mb-2 h-0.5 w-full bg-gray-500'></div>
+    </>
+  );
+}
+
+function H3(props: { children?: ReactNode }) {
+  return (
+    <>
+      <h3
+        id={props.children?.toString().split(0, 20)}
+        className='pt-2 pl-2 text-xl font-semibold text-gray-600 sm:text-2xl'
+      >
+        {props.children}
+      </h3>
+      <div className='mb-2 ml-2 h-0.5 w-full bg-gray-500'></div>
+    </>
+  );
 }
 
 function P(props: { children?: ReactNode }) {
@@ -19,7 +43,8 @@ function Li(props: { children?: ReactNode }) {
 }
 
 const components = {
-  h1: H1,
+  h2: H2,
+  h3: H3,
   p: P,
   li: Li,
 };
