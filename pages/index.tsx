@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import Meta from '../components/Meta';
 import { getPostMetaTags } from '../scripts/utils';
+import Image from 'next/image';
 
 interface Props {
   postMetas: {
@@ -20,10 +21,16 @@ const Home: NextPage<Props> = (props: Props) => {
     <>
       <Meta title='Home' description='RiN5 BLOGのHomeページ。' />
       <div className='flex w-full flex-col gap-y-5 '>
-        <div className='w-full bg-white p-3'>
-          <h2>{props.postMetas[0].title}</h2>
-          <Link href={props.postMetas[0].link}>{props.postMetas[0].link}</Link>
-          <p>{props.postMetas[0].link}</p>
+        <div className='grid w-full grid-cols-1 gap-4 bg-white p-3 sm:grid-cols-4'>
+          {props.postMetas.map((postMeta, index) => {
+            return (
+              <div key={index}>
+                <Image width={800} height={458} src={postMeta.headImage} alt='title image' />
+                <h2>{postMeta.title}</h2>
+                <Link href={postMeta.link}>{postMeta.link}</Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
