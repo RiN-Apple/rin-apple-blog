@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
 import type { NextPage } from 'next';
-import { faTags, faFile } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
+import BlogCategoryAndTags from './BlogCategoryAndTags';
 
 type Props = {
   children?: ReactNode;
@@ -27,23 +26,7 @@ const BlogLayout: NextPage<Props> = ({ children, meta }: Props) => {
         <p>更新日 {meta.update}</p>
       </div>
 
-      <div className='flex flex-row space-x-2'>
-        <div className='flex w-fit space-x-1 rounded-md bg-black p-2 text-sm text-white'>
-          <FontAwesomeIcon icon={faFile}></FontAwesomeIcon>
-          <p>{meta.category}</p>
-        </div>
-        {meta.tags.map((tag, index) => {
-          return (
-            <div
-              className='flex w-fit space-x-1 rounded-md border  border-black bg-white p-2 text-sm text-black'
-              key={index}
-            >
-              <FontAwesomeIcon icon={faTags}></FontAwesomeIcon>
-              <p>{tag}</p>
-            </div>
-          );
-        })}
-      </div>
+      <BlogCategoryAndTags category={meta.category} tags={meta.tags}></BlogCategoryAndTags>
 
       <h1 className='p-4 text-3xl'>{meta.title}</h1>
 
@@ -51,23 +34,7 @@ const BlogLayout: NextPage<Props> = ({ children, meta }: Props) => {
 
       {children}
 
-      <div className='flex flex-row space-x-2'>
-        <div className='flex w-fit space-x-1 rounded-md bg-black p-2 text-sm text-white'>
-          <FontAwesomeIcon icon={faFile}></FontAwesomeIcon>
-          <p>{meta.category}</p>
-        </div>
-        {meta.tags.map((tag, index) => {
-          return (
-            <div
-              className='flex w-fit space-x-1 rounded-md border  border-black bg-white p-2 text-sm text-black'
-              key={index}
-            >
-              <FontAwesomeIcon icon={faTags}></FontAwesomeIcon>
-              <p>{tag}</p>
-            </div>
-          );
-        })}
-      </div>
+      <BlogCategoryAndTags category={meta.category} tags={meta.tags}></BlogCategoryAndTags>
     </section>
   );
 };
