@@ -43,7 +43,10 @@ const Home: NextPage<Props> = (props: Props) => {
                   </div>
                   {postMeta.tags.map((tag, index) => {
                     return (
-                      <div className='flex w-fit space-x-1 my-1 rounded-md bg-white border border-black p-1 text-black'>
+                      <div
+                        className='flex w-fit space-x-1 my-1 rounded-md bg-white border border-black p-1 text-black'
+                        key={index}
+                      >
                         <FontAwesomeIcon icon={faFile}></FontAwesomeIcon>
                         <p>{tag}</p>
                       </div>

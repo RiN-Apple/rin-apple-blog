@@ -15,6 +15,10 @@ class Document extends NextDocument<Props> {
             href='https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&display=swap'
             rel='stylesheet'
           />
+          <link
+            rel='stylesheet'
+            href='https://unpkg.com/dracula-prism/dist/css/dracula-prism.css'
+          ></link>
         </Head>
         <body className='bg-gray-100 font-notosans'>
           <Main />
