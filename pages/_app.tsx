@@ -10,7 +10,7 @@ function H2(props: { children?: ReactNode }) {
     <>
       <h2
         id={props.children?.toString().substring(1, 20)[0]}
-        className='pt-2 text-2xl font-bold text-gray-600 sm:text-3xl'
+        className='pt-7 pb-2 text-2xl font-bold text-gray-600 sm:text-3xl'
       >
         {props.children}
       </h2>
@@ -24,7 +24,7 @@ function H3(props: { children?: ReactNode }) {
     <>
       <h3
         id={props.children?.toString().substring(0, 20)[0]}
-        className='pt-2 pl-2 text-xl font-semibold text-gray-600 sm:text-2xl'
+        className='pt-5 pl-2 text-xl font-semibold text-gray-600 sm:text-2xl'
       >
         {props.children}
       </h3>
@@ -35,6 +35,14 @@ function H3(props: { children?: ReactNode }) {
 
 function P(props: { children?: ReactNode }) {
   return <p className='p-3'>{props.children}</p>;
+}
+
+function A(props: { href: string; children?: ReactNode }) {
+  return (
+    <a className='underline' href={props.href}>
+      {props.children}
+    </a>
+  );
 }
 
 function Li(props: { children?: ReactNode }) {
@@ -53,6 +61,7 @@ const components = {
   h2: H2,
   h3: H3,
   p: P,
+  a: A,
   li: Li,
   ul: Ul,
   ol: Ol,

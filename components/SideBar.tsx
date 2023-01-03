@@ -1,6 +1,7 @@
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { NextPage } from 'next';
+import Link from 'next/link';
 
 const SideBar: NextPage = () => {
   return (
@@ -10,10 +11,21 @@ const SideBar: NextPage = () => {
           <div className='rounded-md border-4 border-gray-400 bg-white p-3'>
             <h2 className='text-center text-lg font-semibold'>カテゴリ</h2>
             <div className='mb-2 h-0.5 w-full bg-gray-400'></div>
-            <li>プログラミング</li>
-            <li>車</li>
-            <li>イラスト</li>
-            <li>雑記</li>
+            <Link href={'/category/random'} passHref>
+              <li className='cursor-pointer hover:underline'>雑記</li>
+            </Link>
+            <Link href={'/category/programing'} passHref>
+              <li className='cursor-pointer hover:underline'>プログラミング</li>
+            </Link>
+            {/* <Link href={'/category/car'} passHref>
+              <li className='cursor-pointer hover:underline'>車</li>
+            </Link>
+            <Link href={'/category/illustration'} passHref>
+              <li className='cursor-pointer hover:underline'>イラスト</li>
+            </Link>
+            <Link href={'/category/gadget_pc'} passHref>
+              <li className='cursor-pointer hover:underline'>ガジェット・PC</li>
+            </Link> */}
           </div>
         </div>
         <div className='w-full rounded-md bg-white p-2'>

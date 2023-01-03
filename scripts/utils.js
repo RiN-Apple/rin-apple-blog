@@ -17,3 +17,6 @@ export const getPostMetaTags = async () => {
   });
   return sortedPostMetadata;
 };
+
+export const tags = [];
+export const categories = ['random', 'programing', 'car', 'illustration', 'gadget_pc'];

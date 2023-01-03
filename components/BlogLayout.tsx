@@ -1,25 +1,11 @@
-import { ReactNode } from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import BlogCategoryAndTags from './BlogCategoryAndTags';
 import Toc from './Toc';
-
-type Props = {
-  children?: ReactNode;
-  meta: {
-    title: string;
-    category: string;
-    tags: string[];
-    date: string;
-    update: string;
-    outline: string;
-    link: string;
-    headImage: string;
-  };
-};
+import { PostMeta } from '../scripts/type';
 
 // ブログ本文上下の設定
-const BlogLayout: NextPage<Props> = ({ children, meta }: Props) => {
+const BlogLayout: NextPage<PostMeta> = ({ children, meta }: PostMeta) => {
   return (
     <section className='flex w-full flex-col gap-y-2 rounded-md bg-white px-4 py-5'>
       <div className='flex flex-row justify-start space-x-2'>
@@ -27,7 +13,11 @@ const BlogLayout: NextPage<Props> = ({ children, meta }: Props) => {
         {meta.update && <p>更新日 {meta.update}</p>}
       </div>
 
-      <BlogCategoryAndTags category={meta.category} tags={meta.tags}></BlogCategoryAndTags>
+      <BlogCategoryAndTags
+        category={meta.category}
+        tags={meta.tags}
+        url={meta.categoryEn}
+      ></BlogCategoryAndTags>
 
       <h1 className='p-4 text-3xl'>{meta.title}</h1>
 
@@ -40,7 +30,11 @@ const BlogLayout: NextPage<Props> = ({ children, meta }: Props) => {
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <article className='blogContents'>{children}</article>
 
-      <BlogCategoryAndTags category={meta.category} tags={meta.tags}></BlogCategoryAndTags>
+      <BlogCategoryAndTags
+        category={meta.category}
+        tags={meta.tags}
+        url={meta.categoryEn}
+      ></BlogCategoryAndTags>
     </section>
   );
 };
