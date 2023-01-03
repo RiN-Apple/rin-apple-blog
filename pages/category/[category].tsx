@@ -29,7 +29,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext) => {
   const postMetas = await getPostMetaTags();
-  console.log(params!.category);
   const filtered = postMetas.filter((meta) => meta.categoryEn === params!.category);
   const name = filtered[0].category;
 
