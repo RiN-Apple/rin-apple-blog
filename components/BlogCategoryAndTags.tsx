@@ -9,15 +9,15 @@ interface Props {
 
 const BlogCategoryAndTags: NextPage<Props> = (props: Props) => {
   return (
-    <div className='flex flex-col space-y-2 text-xs sm:flex-row sm:space-y-0 sm:space-x-2 sm:text-sm '>
-      <div className='flex w-fit space-x-1 rounded-md bg-black p-2 text-white'>
+    <div className='flex flex-row space-x-2 text-xs flex-wrap '>
+      <div className='flex w-fit space-x-1 rounded-md bg-black p-2 my-1 text-white'>
         <FontAwesomeIcon icon={faFile}></FontAwesomeIcon>
         <p>{props.category}</p>
       </div>
       {props.tags.map((tag, index) => {
         return (
           <div
-            className='flex w-fit space-x-1 rounded-md border  border-black bg-white p-2 text-black'
+            className='flex w-fit space-x-1 rounded-md border  border-black bg-white p-2 my-1 text-black'
             key={index}
           >
             <FontAwesomeIcon icon={faTags}></FontAwesomeIcon>

@@ -24,7 +24,7 @@ const BlogLayout: NextPage<Props> = ({ children, meta }: Props) => {
     <section className='flex w-full flex-col gap-y-2 rounded-md bg-white px-4 py-5'>
       <div className='flex flex-row justify-start space-x-2'>
         <p>投稿日 {meta.date}</p>
-        <p>更新日 {meta.update}</p>
+        {meta.update && <p>更新日 {meta.update}</p>}
       </div>
 
       <BlogCategoryAndTags category={meta.category} tags={meta.tags}></BlogCategoryAndTags>
