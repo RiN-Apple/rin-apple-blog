@@ -5,8 +5,7 @@ RiN5さんのブログテンプレート。SSGしてます。
 ## 起動
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
 ```
 
@@ -20,23 +19,8 @@ yarn dev
 - prettier(コード整形)
 - eslint(構文チェック)
 - tailwind css(decoration)
-
-## 作成tips
-
-### 1. 雛形作成
-
-```bash
-npx create-next-app rin-apple-blog --typescript
-```
-
-### 2. eslint & prettierの設定
-
-```bash
-npm init @eslint/config
-
-npm install -D prettier eslint-config-prettier
-```
-
-eslint設定の参考： <https://zenn.dev/rabbit/articles/d7175e62dc56a5>
-
-### 3
+- font awesome (アイコン)
+- MDX(マークダウンでjsx)
+- tocbot(目次)
+- remark-prism(コードのハイライト)
+- Firebase Hosting(デプロイ先)
