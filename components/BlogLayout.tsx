@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
 import BlogCategoryAndTags from './BlogCategoryAndTags';
 import Toc from './Toc';
 import { PostMeta } from '../scripts/type';
@@ -21,7 +20,7 @@ const BlogLayout: NextPage<PostMeta> = ({ children, meta }: PostMeta) => {
 
       <h1 className='p-4 text-3xl'>{meta.title}</h1>
 
-      <Image width={800} height={458} src={meta.headImage} alt='title image' />
+      <img width={800} height={458} src={meta.headImage} alt='title image' />
 
       <p className='px-3 pt-4 pb-5'>{meta.outline}</p>
 

@@ -19,4 +19,5 @@ export const getPostMetaTags = async () => {
 };
 
 export const tags = [];
-export const categories = ['random', 'programing', 'car', 'illustration', 'gadget_pc'];
+export const categories = ['random', 'programing'];
+// export const categories = ['random', 'programing', 'car', 'illustration', 'gadget_pc'];

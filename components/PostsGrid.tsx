@@ -2,7 +2,6 @@ import { NextPage } from 'next';
 import { faFile, faTags } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import Image from 'next/image';
 import { PostMetas } from '../scripts/type';
 
 const PostsGrid: NextPage<PostMetas> = (props: PostMetas) => {
@@ -13,7 +12,7 @@ const PostsGrid: NextPage<PostMetas> = (props: PostMetas) => {
           <div key={index} className='bg-white p-2'>
             <Link href={postMeta.link} passHref>
               <a className='cursor-pointer'>
-                <Image width={800} height={458} src={postMeta.headImage} alt='title image' />
+                <img width={800} height={458} src={postMeta.headImage} alt='title image' />
               </a>
             </Link>
 

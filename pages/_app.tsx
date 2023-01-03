@@ -37,7 +37,7 @@ function P(props: { children?: ReactNode }) {
   return <p className='p-3'>{props.children}</p>;
 }
 
-function A(props: { href: string; children?: ReactNode }) {
+function A(props: { href?: string; children?: ReactNode }) {
   return (
     <a className='underline' href={props.href}>
       {props.children}
