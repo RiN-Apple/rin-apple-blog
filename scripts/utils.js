@@ -12,5 +12,8 @@ export const getPostMetaTags = async () => {
 
   // メタデータを取得
   const postMetadata = postModules.map((m) => (m.meta ? m.meta : null));
-  return postMetadata;
+  const sortedPostMetadata = postMetadata.sort((a, b) => {
+    return new Date(a.date) < new Date(b.date) ? -1 : 1;
+  });
+  return sortedPostMetadata;
 };
