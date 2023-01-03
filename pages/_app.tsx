@@ -3,8 +3,6 @@ import type { AppProps } from 'next/app';
 import Layout from '../components/Layout';
 import { ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-// import SyntaxHighlighter from 'react-syntax-highlighter';
-// import { dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 // 生成されたHTMLで使用するコンポーネント
 function H2(props: { children?: ReactNode }) {
@@ -51,19 +49,6 @@ function Ol(props: { children?: ReactNode }) {
   return <ol className='list-decimal'>{props.children}</ol>;
 }
 
-// function Code({ className, ...props }: { className: string; props: { children: string } }) {
-//   const match = /language-(\w+)/.exec(className || '');
-//   console.log(props.children);
-//   // return <div></div>;
-//   return match ? (
-//     <SyntaxHighlighter language={match[1]} style={dark}>
-//       {props.children}
-//     </SyntaxHighlighter>
-//   ) : (
-//     <code className={className} {...props} />
-//   );
-// }
-
 const components = {
   h2: H2,
   h3: H3,
@@ -71,7 +56,6 @@ const components = {
   li: Li,
   ul: Ul,
   ol: Ol,
-  // code: Code,
 };
 
 function MyApp({ Component, pageProps }: AppProps) {

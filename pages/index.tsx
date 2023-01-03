@@ -33,21 +33,21 @@ const Home: NextPage<Props> = (props: Props) => {
                 {postMeta.update && <p className='text-sm'>更新日 {postMeta.update}</p>}
 
                 <Link href={postMeta.link}>
-                  <a className='text-lg font-semibold py-1 hover:underline'>{postMeta.title}</a>
+                  <a className='py-1 text-lg font-semibold hover:underline'>{postMeta.title}</a>
                 </Link>
 
-                <div className='flex space-x-1 text-xs flex-wrap'>
-                  <div className='flex w-fit space-x-1 my-1 rounded-md bg-black p-1 text-white'>
+                <div className='flex flex-wrap space-x-1 text-xs'>
+                  <div className='my-1 flex w-fit space-x-1 rounded-md bg-black p-1 text-white'>
                     <FontAwesomeIcon icon={faFile}></FontAwesomeIcon>
                     <p>{postMeta.category}</p>
                   </div>
                   {postMeta.tags.map((tag, index) => {
                     return (
                       <div
-                        className='flex w-fit space-x-1 my-1 rounded-md bg-white border border-black p-1 text-black'
+                        className='my-1 flex w-fit space-x-1 rounded-md border border-black bg-white p-1 text-black'
                         key={index}
                       >
-                        <FontAwesomeIcon icon={faFile}></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faTags}></FontAwesomeIcon>
                         <p>{tag}</p>
                       </div>
                     );
