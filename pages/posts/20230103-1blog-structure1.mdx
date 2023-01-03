@@ -1,0 +1,48 @@
+import BlogLayout from '../../components/BlogLayout';
+import Meta from '../../components/Meta';
+
+export const meta = {
+  title: '【Next.js+MDX】どうせブログやるんなら土台から作ろうぜ！【概要編】',
+  category: 'プログラミング',
+  categoryEn: 'programing',
+  tags: ['Next.js', 'TailWind CSS', 'MDX'],
+  date: '2023-01-03',
+  update: '',
+  outline:
+    'ブログやってみたい人必見！あえてハードモードでスタートするブログ構築についてです。 Noteやはてなブログで書くことももちろんありだと思いますが、一から作るとメチャクチャ勉強になりますよ～♪',
+  link: '/posts/20230103-1blog-structure1',
+  headImage: '/20230103-1/title.png',
+};
+
+## 用意するもの
+
+- パソコン
+- ドメイン代：2000 円弱
+
+## 使用する言語、ライブラリ、フレームワーク、サービス
+
+ざっくり以下の通り
+
+### 言語
+
+- [TypeScript](https://www.typescriptlang.org/): ブラウザ上で唯一動く言語である「JavaScript」に静的型付けとクラスベースオブジェクト指向を追加した言語
+
+### ライブラリ・フレームワーク
+
+- [React](https://ja.reactjs.org/): UI(ユーザインタフェース、見た目や振る舞い)を簡単に構築でき、管理も楽
+- [Next.js](https://nextjs.org/): React ベースをベースとした、Web サイト・アプリ構築のフレームワーク。ルーティング(ページ配置、リンク)や公開をスムーズにできる
+- [TailWind CSS](https://tailwindcss.com/): HTML のクラスに見た目を記述するだけでおしゃれな Web デザインができる。ただし、HTML ファイルの見た目が汚くなる
+- [MDX](https://mdxjs.com/): ちょっとした文書をリッチに書ける[MarkDown](https://ja.wikipedia.org/wiki/Markdown)の進化版。React のコンポーネント(部品)を呼び出せる。Next.js なら導入がカンタン ♬
+
+### サービス
+
+- [Firebase Hosting](https://firebase.google.com/docs/hosting): 公開する Web サイトを置く場所
+- [お名前ドットコム](https://www.onamae.com/): ドメイン(www.hogehoge.com的なやつ)を取得できるサービス。
+
+## まとめ
+
+かかる金額はたったの年間 2000 円程度です。  
+次回から詳細を書いていこうかな。
+
+<Meta title={meta.title} description={meta.outline} url={meta.link}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
