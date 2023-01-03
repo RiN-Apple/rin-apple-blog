@@ -1,0 +1,29 @@
+import BlogLayout from '../../components/BlogLayout';
+import Meta from '../../components/Meta';
+
+export const meta = {
+  title: '【Next.js+MDX】どうせブログやるんなら土台から作ろうぜ！',
+  category: 'プログラミング',
+  categoryEn: 'programing',
+  tags: ['Next.js', 'TailWind CSS', 'MDX'],
+  date: '2023-01-03',
+  update: '',
+  outline:
+    '\n ブログやってみたい人必見！あえてハードモードでスタートするブログ構築についてです。 \n Noteやはてなブログで書くことももちろんありだと思いますが、どうせなら土台から作ってWebに触れてみませんか？？',
+  link: '/posts/20230103-1blog-structure',
+  headImage: '/20230103-1/title.png',
+};
+
+## このブログについて
+
+- a
+- a
+
+### aaa
+
+## 意気込み
+
+## まとめ
+
+<Meta title={meta.title} description={meta.outline} url={meta.link}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
