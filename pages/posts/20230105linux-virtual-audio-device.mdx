@@ -1,0 +1,162 @@
+import BlogLayout from '../../components/BlogLayout';
+import Meta from '../../components/Meta';
+
+export const meta = {
+  title: '【PulseAudio, ALSA】Linuxで仮想音声デバイスを作る方法',
+  category: 'プログラミング',
+  categoryEn: 'programing',
+  tags: ['Linux', 'PulseAudio', 'ALSA'],
+  date: '2023-01-05',
+  update: '',
+  outline:
+    'ALSAやPulseAudioにモジュールを追加し、仮想音声デバイスを作成します。仮想マシンなどで音声デバイスがない時や、デバイス内で音声のルーティングを行いたい場合に使えます',
+  link: '/posts/20230105linux-virtual-audio-device',
+  headImage: '/20230103-1/title.png',
+};
+
+## ALSA と PulseAudio
+
+[ALSA](https://www.alsa-project.org/wiki/Main_Page)(Advanced Linux Sound Architecture)とは、Linux におけるサウンドデバイスの設定・管理ができる仕組み。
+しかし、ALSA は複数アプリから１つの音声デバイスにアクセスできない。
+そこで、複数の入出力を可能とするのが、[PulseAudio](https://pulse.audio/)。
+
+## ALSA 編
+
+単純に「仮想デバイスが欲しい！」や「ループバックしたい」と思ったらこっちで十分。
+
+1. snd-aloop を load
+
+   ```bash
+   $ sudo modprobe snd-aloop
+   #非rootユーザー向けののアクセス設定
+   $ sudo adduser $USER audio
+   ```
+
+2. デバイスが追加されたことを確認
+
+   ```bash
+   $ sudo apt install alsa-utils
+   # PlayBack(出力)
+   $ aplay -l
+   **** List of PLAYBACK Hardware Devices ****
+   card 0: Loopback [Loopback], device 0: Loopback PCM [Loopback PCM]
+     Subdevices: 6/8
+     Subdevice #0: subdevice #0
+     Subdevice #1: subdevice #1
+     Subdevice #2: subdevice #2
+     Subdevice #3: subdevice #3
+     Subdevice #4: subdevice #4
+     Subdevice #5: subdevice #5
+     Subdevice #6: subdevice #6
+     Subdevice #7: subdevice #7
+   card 0: Loopback [Loopback], device 1: Loopback PCM [Loopback PCM]
+     Subdevices: 8/8
+     Subdevice #0: subdevice #0
+     Subdevice #1: subdevice #1
+     Subdevice #2: subdevice #2
+     Subdevice #3: subdevice #3
+     Subdevice #4: subdevice #4
+     Subdevice #5: subdevice #5
+     Subdevice #6: subdevice #6
+     Subdevice #7: subdevice #7
+
+   # Record(入力)
+   $ arecord -l
+   **** List of CAPTURE Hardware Devices ****
+   card 0: Loopback [Loopback], device 0: Loopback PCM [Loopback PCM]
+     Subdevices: 8/8
+     Subdevice #0: subdevice #0
+     Subdevice #1: subdevice #1
+     Subdevice #2: subdevice #2
+     Subdevice #3: subdevice #3
+     Subdevice #4: subdevice #4
+     Subdevice #5: subdevice #5
+     Subdevice #6: subdevice #6
+     Subdevice #7: subdevice #7
+   card 0: Loopback [Loopback], device 1: Loopback PCM [Loopback PCM]
+     Subdevices: 8/8
+     Subdevice #0: subdevice #0
+     Subdevice #1: subdevice #1
+     Subdevice #2: subdevice #2
+     Subdevice #3: subdevice #3
+     Subdevice #4: subdevice #4
+     Subdevice #5: subdevice #5
+     Subdevice #6: subdevice #6
+     Subdevice #7: subdevice #7
+   ```
+
+3. 使ってみる
+
+   ```bash
+   # 適当なWAVファイルを用意して
+   $ aplay -D hw:Loopback,0,0 sample.wav
+   ```
+
+- 削除したくなったら
+
+  ```bash
+  $ sudo modprobe -r snd-aloop
+  ```
+
+- Tip: 起動時に自動ロード  
+   /etc/modules に vi などで追記
+  ```sh
+  # /etc/modules: kernel modules to load at boot time.
+  #
+  # This file contains the names of kernel modules that should be loaded
+  # at boot time, one per line. Lines beginning with "#" are ignored.
+  snd-aloop <-これ追記
+  ```
+
+## PulseAudio 編
+
+複数アプリから音声入力を行う場合や、音声の入出力を少し複雑に管理する場合は PulseAudio が良い。
+
+1. pactl(PulseAudio の管理コマンド)を使えるようにする
+   ```bash
+   $ sudo apt install pulseaudio-utils
+   ```
+2. 仮想デバイスを作成
+
+   ```bash
+   # VirtualSink0の部分は好きな文字列で可
+   $ pacmd load-module module-null-sink sink_name=VirtualSink0 sink_properties=device.description=VirtualSink0
+   # ループバックしたくなったら
+   $ pacmd load-module module-loopback source=VirtualSink0.monitor source_dont_move=true
+   ```
+
+3. 確認
+   ```bash
+   $ pactl list short sources
+   1       VirtualSink0.monitor    module-null-sink.c      s16le 2ch 44100Hz       SUSPENDED
+   ```
+
+- 削除したくなったら
+
+  ```bash
+  $ pacmd unload-module module-loopback
+  $ pacmd unload-module module-null-sink
+  ```
+
+- Tip: 起動時に自動ロード  
+  /etc/pulse/default.pa に追記
+
+  ```sh
+  pacmd load-module module-null-sink sink_name=VirtualSink0 sink_properties=device.description=VirtualSink0
+  ```
+
+- おかしくなったら
+
+  ```bash
+  #PulseAudio
+  $ pulseaudio --kill
+  $ pulseaudio --start
+  ```
+
+## まとめ
+
+今回は、Linux で音声仮想デバイスを作成する方法を２つ紹介しました。  
+どっちか悩んだら PulseAudio のほうが多分無難です 🍵
+
+<Meta title={meta.title} description={meta.outline} url={meta.link}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
