@@ -34,7 +34,7 @@ function H3(props: { children?: ReactNode }) {
 }
 
 function P(props: { children?: ReactNode }) {
-  return <p className='p-3'>{props.children}</p>;
+  return <p className=' p-3'>{props.children}</p>;
 }
 
 function A(props: { href?: string; children?: ReactNode }) {
@@ -46,15 +46,15 @@ function A(props: { href?: string; children?: ReactNode }) {
 }
 
 function Li(props: { children?: ReactNode }) {
-  return <li className='list-item list-inside px-6 py-1 '>{props.children}</li>;
+  return <li className='list-item'>{props.children}</li>;
 }
 
 function Ul(props: { children?: ReactNode }) {
-  return <ul className='list-disc'>{props.children}</ul>;
+  return <ul className='list-disc pl-5'>{props.children}</ul>;
 }
 
 function Ol(props: { children?: ReactNode }) {
-  return <ol className='list-decimal'>{props.children}</ol>;
+  return <ol className='list-decimal pl-5'>{props.children}</ol>;
 }
 
 const components = {
