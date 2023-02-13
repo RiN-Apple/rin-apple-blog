@@ -7,7 +7,7 @@ export const meta = {
   categoryEn: 'programing',
   tags: ['Linux', 'PulseAudio', 'ALSA'],
   date: '2023-01-05',
-  update: '',
+  update: '2023-02-13',
   outline:
     'ALSAやPulseAudioにモジュールを追加し、仮想音声デバイスを作成します。仮想マシンなどで音声デバイスがない時や、デバイス内で音声のルーティングを行いたい場合に使えます',
   link: '/posts/20230105linux-virtual-audio-device',
@@ -142,7 +142,7 @@ export const meta = {
   /etc/pulse/default.pa に追記
 
   ```sh
-  pacmd load-module module-null-sink sink_name=VirtualSink0 sink_properties=device.description=VirtualSink0
+  load-module module-null-sink sink_name=VirtualSink0 sink_properties=device.description=VirtualSink0
   ```
 
 - おかしくなったら

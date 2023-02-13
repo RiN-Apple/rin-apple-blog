@@ -1,0 +1,107 @@
+import BlogLayout from '../../components/BlogLayout';
+import Meta from '../../components/Meta';
+
+export const meta = {
+  title: '【WSL, VSCode】WSL+VSCodeが好き',
+  category: 'プログラミング',
+  categoryEn: 'programing',
+  tags: ['WSL', 'VSCode'],
+  date: '2023-02-14',
+  update: '',
+  outline:
+    'Windows上で簡単にLinux環境を構築できる「WSL」と、Microsoftの軽量＆拡張性高のテキストエディター「VSCode」。WindowsでWebアプリ作ったり、Pythonやったりするならこの環境が好き。',
+  link: '/posts/20230214wsl',
+  headImage: '/20230214/title.png',
+};
+
+## WSL とは
+
+[WSL](https://learn.microsoft.com/ja-jp/windows/wsl/install)を使うと、Windows マシン上で Linux 環境が構築できます。もちろん Linux コマンドも使えるようになります。ファイル共有やポートの設定、パーティションの設定などの面倒な操作が一切不要で簡単かつ安全に構築できるのがメリットです。Windows 10 以降のマシンなら Home エディションでも実行可能です。
+
+## VSCode とは
+
+[公式サイト](https://azure.microsoft.com/ja-jp/products/visual-studio-code)  
+MicroSoft 製のテキストエディタです。テキストエディタは世の中に無数にあって、VSCode 以外では、Jetbrains 系 や Vim、Atom などが有名です。極論、メモ帳でもコーディングは可能ですが、高機能なテキストエディタを使用すると開発が捗ったりエラーが発見しやすくなったりします。  
+VSCode は豊富な拡張機能と軽量さが魅力です。Git やリモートサーバー、Python の仮想環境などあらゆるものとの連携可能で、開発のほとんどをエディタ内で実現できます。
+
+## なんで好きなの？
+
+「トラブりにくい(体感)」
+
+生の Windows で開発していると、例えば Yarn(Node.js のパッケージマネージャ)でパッケージをインストールするときにトラブったり、ディレクトリのバックスラッシュ表記につまずいたりします。それに大体のレンタルサーバーなどの本番環境は Linux を使うので、Windows で開発しているとリリースのタイミングで痛い目にあうこともあります。
+
+でも Mac は高いし、Linux は普段使いに支障が出る！ゲームもやりたい！
+
+だから 私は Windows マシンを使用しますが、トラブりたくないのでどうにかして慣れた環境（Linux）での開発を模索します。 それを叶えてくれる方法はいくつかあるのですが、WSL 以外は個人的にいくつかの問題を抱えています。
+
+1. デュアルブート  
+   PC に Windows と Linux の両方をインストールします。  
+   この方法だと、ディスクのパーティションを OS ごとに分割する必要があり、面倒かつ各 OS で使える容量がシビアになります。また、パーティション分けをミスると最悪全データを失います。それ以外にもトラブルのリスクが多く、メイン PC ではやりたくないです。
+
+2. VirtualBox などの仮想環境  
+   Windows 側との連携が面倒です。ポートの設定や共有フォルダの設定などやることいろいろあるので、骨が折れます。
+
+3. クラウド環境やレンタルサーバー  
+   お金がかかるので..
+
+4. Docker  
+   Docker は簡単に破壊と創生ができるので好きです。ただ、Windows に Docker をインストールした場合だと、 多少なりとも Windows のターミナルを操作することになるので問題の解決にならないです。なので私は WSL 環境で Docker をインストールしてコンテナを立ち上げることが多いです。
+
+WSL はこれらと比較して、お金かからない＆簡単で始めやすく、トラブルが少ないのでおすすめです。
+
+VSCode については無料で動作が早く、拡張性が高いところが好きです。  
+テキストエディター選びは個人の好みの部分が大きいですが、WSL と同じ MicroSoft 製で拡張機能により簡単に連携ができるので、WSL と組み合わせる場合は VSCode が最強だと思います。
+
+## インストール方法概要と私の環境
+
+多少は Windows の ターミナルを操作することになります。  
+でも最初だけです（素晴らしい！）。
+
+概要とある通り、一部操作画面や基本的な Windows の使い方は省いているので、適宜検索してみてください。
+Windows 11 なら大体やり方は同じはずです。
+
+【私の環境 ↓↓】
+
+- CPU: Core i5 12600kf
+- GPU: RTX3060Ti
+- OS: Windows 11 Home
+
+## ① WSL をインストール
+
+この方法では Ubuntu（Linux のド定番）がインストールされます。
+
+1. Windows ターミナルを開く
+
+2. インストールコマンドを実行
+
+3. 「再起動してください」と出たら PC を再起動をする
+
+4. 再起動後に表示される Ubuntu のターミナルで新規ユーザネームとパスワードを入力
+
+以上で終わりです。簡単。
+
+## ② VSCode をインストール
+
+1. [公式サイト](https://code.visualstudio.com/download)でインストーラをダウンロード
+
+2. インストーラを開いてインストール
+
+## ③ リモートエクスプローラーで WSL にアクセス
+
+1. 拡張機能をインストール  
+   拡張機能のマーケットで検索＆インストールしましょう。
+
+   ![](/20230214/wsl-plugin.png)
+
+2. リモートエクスプローラーから WSL にアクセス  
+   [公式](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)の Gif 画像の通りです
+
+## まとめ
+
+私は WSL & VSCode が好きなので、JavaScript や Python での開発はこの環境でやっています。
+
+今後記事にしたい内容の基本となるので、今回取り上げました。  
+更新がんばります 💪
+
+<Meta title={meta.title} description={meta.outline} url={meta.link}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
