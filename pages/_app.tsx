@@ -39,7 +39,7 @@ function P(props: { children?: ReactNode }) {
 
 function A(props: { href?: string; children?: ReactNode }) {
   return (
-    <a className='underline' target='_blank' href={props.href}>
+    <a className='underline' target='_blank' rel='noreferrer' href={props.href}>
       {props.children}
     </a>
   );
