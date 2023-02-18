@@ -1,0 +1,50 @@
+import BlogLayout from '../../components/BlogLayout';
+import Meta from '../../components/Meta';
+
+export const meta = {
+  title: '【Linux】ディスクの使用量を確認するコマンド',
+  category: 'プログラミング',
+  categoryEn: 'programing',
+  tags: ['Linux'],
+  date: '2023-02-15',
+  update: '',
+  outline: '',
+  link: '/posts/20230215linux-disk-space',
+  headImage: '/20230105/title.png',
+};
+
+## Linux のディスク使用量を確認する
+
+よく使うディスク容量確認コマンドを２つ。
+
+## df ~ディスクの使用量~
+
+```bash
+$ df
+
+# -hオプションを付けると読みやすくなる(K,M,G表示)
+$ df -h
+```
+
+## du ~ファイルのディスク使用量~
+
+```bash
+# カレントディレクトリの場合
+$ du ./
+
+# 集計するディレクトリの深さを１に
+$ du -d 1 ./
+
+# dfと同じく-hオプションも付けられる
+$ du -h ./
+
+# sortも加えたよく使う構成
+$ du -d 1 . | sort -nr
+```
+
+## 最後に
+
+よく使うくせに毎回ググってる。
+
+<Meta title={meta.title} description={meta.outline} url={meta.link}></Meta>
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>
